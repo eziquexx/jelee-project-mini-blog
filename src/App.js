@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import MainPage from "./component/page/MainPage.jsx";
+import PostViewPage from "./component/page/PostViewPage.jsx";
 
 const MainTitleText = styled.p`
   font-size: 24px;
@@ -18,6 +19,7 @@ function App(props) {
       <MainTitleText>JELEE의 미니 블로그</MainTitleText>
       <Routes>
         <Route index element={<MainPage />}/>
+        <Route path="post/:postId" element={<PostViewPage />} />
       </Routes>
     </BrowserRouter>
   );
