@@ -1,8 +1,10 @@
+import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import TextInput from "../ui/TextInput";
 import Button from "../ui/Button";
 import data from "../../data.json"
+import CommentList from "../list/CommentList";
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -47,6 +49,8 @@ function PostViewPage(props) {
     return item.id == postId;
   })
 
+  const [comment, setComment] = useState('');
+
   return (
     <Wrapper>
       <Container>
@@ -62,6 +66,14 @@ function PostViewPage(props) {
         </PostContainer>
 
         <CommentLabel>댓글</CommentLabel>
+        <CommentList comments={post.comments} />
+        <TextInput 
+          height={40}
+          value={comment}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        />
 
         <Button 
           title="댓글 작성하기"
