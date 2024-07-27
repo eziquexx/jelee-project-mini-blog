@@ -16,7 +16,7 @@ const MainTitleText = styled.p`
 function App(props) {
   return (
     <BrowserRouter>
-      <MainTitleText>JELEE의 미니 블로그</MainTitleText>
+      <MainTitleText>JELEE의 미니 블로그 test</MainTitleText>
       <Routes>
         <Route index element={<MainPage />}/>
         <Route path="post/:postId" element={<PostViewPage />} />
